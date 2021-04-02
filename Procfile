@@ -1,0 +1,1 @@
+web: gunicorn History_Monitor.wsgi:application --log-file-

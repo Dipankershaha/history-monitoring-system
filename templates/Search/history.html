@@ -1,0 +1,594 @@
+<style>
+    body {
+    font-size: 10pt;
+    font-family: arial, sans-serif;
+    }
+    
+    a {
+    text-decoration: none;
+    
+    }
+    
+    a:hover {
+    text-decoration: underline;
+    }
+    
+    button {
+    font-weight: bold;
+    font-family: arial;
+    }
+    
+    
+    /* Top Toolbar */
+    
+    .top-toolbar {
+    height: 50px;
+    }
+    
+    .top-toolbar nav {
+    float:right;
+    margin: 7px 21px;
+    }
+    
+    .top-toolbar nav a {
+    margin: 3px 6px;
+    color: #404040;
+    }
+    
+    .top-toolbar nav a:hover {
+    color: #111111;
+    }
+    
+    .top-toolbar nav button {
+    padding: 7px 12px;
+    border-radius: 2px;
+    /* background-color: #4585F1;*/
+    background-image: -moz-linear-gradient(top left, #4084F9 0%, #4585F1 100%);
+    background-image: -o-linear-gradient(top left, #4084F9 0%, #4585F1 100%);
+    background-image: -webkit-gradient(linear, left top, right bottom, color-stop(0, #4585F1), color-stop(1, #0097DE));
+    background-image: -webkit-linear-gradient(top left, #4084F9 0%, #4585F1 100%);
+    color: white;
+    border: 1px darkblue;
+    font-size: 9.5pt;
+    }
+    
+    .top-toolbar nav button:hover {
+    box-shadow: 1px 1px 0 rgba(0,0,0,.2);
+    }
+    
+    .top-toolbar nav img {
+    margin: 0 7.5px;
+    height: 22px;
+    position: relative;
+    top: 7px;}
+    
+    /* End of Top Toolbar */
+    /* Search */
+    
+    .search {
+    text-align: center;
+    clear: both;
+    margin: 11% 0 0 0;
+    }
+    
+    .logo {
+    max-width: 21%;
+    margin: 0 auto;
+    }
+    
+    .search img {
+    margin-bottom: 3%;
+    max-width: 100%;
+    }
+    
+    .search input {
+    
+    width: 570px;
+    border: 1px solid #D8D8D8;
+    padding: 5px;
+    font-size: 11pt;
+    /* background: url('images/microphone.png') no-repeat;
+    background-position: right;
+    background-size: 4.25%;*/
+    }
+    
+    .search-bar {
+    max-width: 80%;
+    }
+    
+    .search input:focus {
+    outline: none;
+    border: 1px solid #4285F4;
+    }
+    
+    .search button {
+    margin: 14px 7px 0 5px;
+    padding: 7px 8px;
+    border-radius: 2px;
+    border: 1px solid #D0D0D0;
+    color: #444444;
+    background-image: -moz-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: -o-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F5F5F5), color-stop(1, #F0F0F0));
+    background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: linear-gradient(to bottom, #F5F5F5 0%, #F0F0F0 100%);
+    }
+    
+    .search button:hover {
+    box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+    }
+    
+    /* End of Search */
+    /* Footer */
+    
+    footer {
+    position: fixed;
+    bottom: 0;
+    height: 42px;
+    width: 100%;
+    font-size: 9.5pt;
+    background-image: -moz-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: -o-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F5F5F5), color-stop(1, #F0F0F0));
+    background-image: -webkit-linear-gradient(top, #F5F5F5 0%, #F0F0F0 100%);
+    background-image: linear-gradient(to bottom, #F5F5F5 0%, #F0F0F0 100%);
+    }
+    
+    .footer-left {
+    float: left;
+    margin-left: 16px;
+    }
+    
+    .footer-right {
+    float: right;
+    margin-right: 16px;
+    }
+    
+    footer nav {
+    display: inline-block;
+    padding: 15px 0 0 0;
+    }
+    
+    footer nav a {
+    padding: 3px 14px;
+    color: #646464;
+    }
+    
+    footer nav a:hover {
+    color: #000000;
+    }
+    
+    /* End of Footer */
+    
+    @media screen and (max-width: 510px) {
+    .top-toolbar nav a:nth-child(2), a:nth-child(3), footer {
+    display:none;
+    }
+    
+    .logo {
+    max-width: 40%;
+    }
+    }
+</style>
+    
+    <div class="top-toolbar">
+    <nav>
+    <a href="#">+You</a>
+    <a href="#">Gmail</a>
+    <a href="#">Images</a>
+    <img src="https://dl.dropboxusercontent.com/u/25441638/1.5-google-clone/images/grid.png" />
+    <a href="#"><button class="signin">Sign In</button></a>
+    </nav>
+    </div>
+    <div class="search">
+    <div class="logo">
+    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
+    </div>
+    </div>
+    <!-- </div>
+    </div> -->
+    <div class="body">
+        {% if histories %}
+    <b style="padding-left: 50px; padding-right: 50px; color: #646464; text-align: center;">Search Histories</b>
+    <br>
+    <input type="checkbox" id="tarikh" onChange="handleCheck(id)" value=""><strong>Check The box if you want to search by Date</strong> 
+    <br>
+    <ul>
+        <li style="list-style-type:none"><input class="tarikh" type="checkbox" id="month" onChange="handleDate(id)">Last month</li>
+        <li style="list-style-type:none"><input class="tarikh" type="checkbox" id="week" onChange="handleDate(id)">Last Week</li>
+        <li style="list-style-type:none"><input class="tarikh" type="checkbox" id="yesterday" onChange="handleDate(id)">Yesterday</li>
+    </ul>
+    
+    
+    
+    <br>
+    <input type="checkbox" id="interval" onChange="handleCheck(id)" value=""><strong>Check it first to search by date interval</strong> 
+    <br>
+    <p style="display: inline;">Start Date</p>
+    <input style="display: inline;" type="date" id="start" name="start">
+    <br>
+    <p style="display: inline;">End Date</p>
+    <input style="display: inline;" type="date" id="end" name="end">
+    <br>
+    <input style="text-align: center;" type="checkbox" class="interval" id="date" onclick="handleInterval(id)"><b>Click to Search</b>
+    <br>
+    <br>
+    <br>
+
+    <!-- {% for date in dates %}
+    <input class="date" type="checkbox" id="{{date}}" onChange="handleDate(value)" value="{{date}}"> {{date}}
+    {% endfor %} -->
+    <!-- <input type="checkbox" id="{{user}}" onChange="handleLoad(id, value)" value="{{histories_all}}"> hello -->
+    
+    <input type="checkbox" id="user" onChange="handleCheck(id)" value=""><strong>Check the box if you want to Search By Users</strong> 
+    <br>
+    <ul>
+        {% for user in users %}
+        <li style="list-style-type:none">
+            <input class="user" type="checkbox" id="{{user}}" onChange="handleChange(value)" value="{{user}}"> {{user}}
+        </li>
+     
+        {% endfor %}
+    </ul>
+    
+    <br>
+    <div>
+        <input style="text-align: flex;" type="checkbox" id="keyword" onChange="handleCheck(id)" value=""><strong>Check the box if you want to Search By Keywords</strong> 
+    <br>
+    <ul>
+        
+        {% for keyword in keywords %}
+        <li style="list-style-type: none;">
+            <input style="text-align: center;" class="keyword" type="checkbox" id="{{keyword}}" onChange="handleKeyword(value)" value="{{keyword}}"> {{keyword}}
+        </li>
+     
+    {% endfor %}
+    </ul>
+    
+    <br>
+    </div>
+    <h1>History Result</h1>
+    
+    {% for history in histories %}
+    
+    
+    <div id="history" style="padding-left: 50px; padding-right: 50px;">
+        <h3 id="keyword" style="color: blue; display: inline;"><a href="#">{{ history.keyword }}</a></h3>
+        <br>
+        </h2><h3 id="name" style="color: green; display: inline;">{{ history.search_by }}</h3>
+        <br>
+        </h2><h3 id="date" style=" display: inline;" >{{ history.search_date }}</h3>
+    </div><br><br>
+    {% endfor %}
+    {% endif %}
+
+    </div>
+    
+    <div class="footer">
+    <footer class="bottom-toolbar">
+    <nav class="footer-left">
+    <a href="#">Advertising</a>
+    <a href="#">Business</a>
+    <a href="#">About</a>
+    </nav>
+    <nav class="footer-right">
+    <a href="#">New Privacy &amp; Terms</a>
+    <a href="#">Settings</a>
+    </nav>
+    </footer>
+    </div>
+    <script type="text/javascript">
+    
+        function handleCheck(n){
+            c = document.getElementById(n);
+            if(c.checked){
+                var elms = document.querySelectorAll("[id='history']");
+                for(var i = 0; i < elms.length; i++) {
+                    elms[i].style.display = "none";    
+                
+                }
+                
+            }
+            else{
+                var unck = document.querySelectorAll(`[class=${n}]`);
+                // console.log(unck);
+                for(var i = 0; i < unck.length; i++) {
+                    unck[i].checked = false;    
+                
+                }
+                var elms = document.querySelectorAll("[id='history']");
+                for(var i = 0; i < elms.length; i++) {
+                    elms[i].style.display = "block";    
+                
+                }
+            }
+           
+        }
+        function handleChange(e){
+            
+            b = document.getElementById(e)
+            // console.log(datas);
+            // console.log(document.getElementById('name').innerText);
+            var elms = document.querySelectorAll("[id='history']");
+            // console.log(e,b.checked);
+            if(b.checked){
+                for(var i = 0; i < elms.length; i++) {
+                    console.log(elms[i].children[1].innerText);
+                    if(elms[i].children[1].innerText == e){
+                    elms[i].style.display = "block";
+                }
+                }
+            }
+            else{
+                for(var i = 0; i < elms.length; i++) {
+                    console.log(elms[i].children);
+                    if(elms[i].children[1].innerText == e){
+                    elms[i].style.display = "none";
+                }
+                }
+            }  
+        }
+        function handleKeyword(k){
+            b = document.getElementById(k)
+            // console.log(datas);
+            // console.log(document.getElementById('name').innerText);
+            var elms = document.querySelectorAll("[id='history']");
+            // console.log(k,b.checked);
+            l = k.substr(0,k.indexOf(' '));
+            // console.log(l);
+            if(b.checked){
+                
+                for(var i = 0; i < elms.length; i++) {
+                    console.log(elms[i].children[0].innerText);
+                    if(elms[i].children[0].innerText == l){
+                    elms[i].style.display = "block";
+                }
+                }
+            }
+            else{
+                for(var i = 0; i < elms.length; i++) {
+                    console.log(elms[i].children);
+                    if(elms[i].children[0].innerText == l){
+                    elms[i].style.display = "none";
+                }
+                }
+            }  
+        }
+
+        function handleDate(d){
+            b = document.getElementById(d)
+            // console.log((d))
+            let ajk = new Date();
+            let options = {
+                // weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                // hour: '2-digit',
+                // minute: '2-digit'
+            };
+            let month = ['January','February','March','April','May','June','July','August','September','September','October','November','December']
+
+            let ajke = ajk.toLocaleString('en-us', options); 
+            // var Arrinput = names.split(',');
+            var ArrToday = ajke.split(',');
+            let year = parseInt(ArrToday[1]);
+            ArrToday = ArrToday[0].split(' ');
+            let mon = month.indexOf(ArrToday[0])+1;
+            let day = parseInt(ArrToday[1])
+            // console.log(year, mon, day);
+            // console.log(datas);
+            // console.log(document.getElementById('name').innerText);
+            let elms = document.querySelectorAll("[id='history']");
+            
+
+            console.log(b.checked);
+            console.log(d);
+            if(b.checked){
+                if(d == "yesterday"){
+                    for(var i = 0; i < elms.length; i++) {
+                        let arr = elms[i].children[2].innerText.split(',');
+                        nyear = parseInt(arr[1])
+                        // console.log('Arrday', );
+                        arr = arr[0].split(' ');
+                        nmon = month.indexOf(arr[0])+1;
+                        // console.log('nday', arr[1]);
+                        nday = parseInt(arr[1])
+                        // console.log(elms[i].children[2].innerText);
+                        // console.log("acho");
+                        // console.log('year',year,'nyear',nyear,'day',day,'nday',nday);
+                        if((year-nyear == 0) && (mon-nmon == 0 || mon-nmon == 1) && (day - nday <= 1 || day - nday >= 0)|| nday - day == 30){
+                            console.log("Hello");
+                            elms[i].style.display = "block";
+                        }
+                    }
+                }
+                if(d == "week"){
+                    for(var i = 0; i < elms.length; i++) {
+                        let arr = elms[i].children[2].innerText.split(',');
+                        nyear = parseInt(arr[1]);
+                        arr = arr[0].split(' ');
+                        nmon = month.indexOf(arr[0])+1;
+                        nday = parseInt(arr[1]);
+                        console.log(elms[i].children[2].innerText);
+                        if(year-nyear == 0){
+                            if(mon-nmon == 0){
+                                if(day - nday <=7){
+                                    elms[i].style.display = "block";
+                                }
+                            }
+                            else if(mon-nmon == 1){
+                                if(nday%2 == 1 && nday - day == 24){
+                                    elms[i].style.display = "block";
+                                }
+                                else if(nday%2 == 0 && nday - day == 23){
+                                    elms[i].style.display = "block";
+                                }
+                            }
+                        }
+                    }
+                }
+                if(d == "month"){
+                    for(var i = 0; i < elms.length; i++) {
+                        let arr = elms[i].children[2].innerText.split(',');
+                        nyear = parseInt(arr[1]);
+                        arr = arr[0].split(' ');
+                        nmon = month.indexOf(arr[0])+1;
+                        nday = parseInt(arr[1]);
+                        console.log(elms[i].children[2].innerText);
+                        if(year-nyear == 0){
+                            if(mon-nmon == 0){
+                                if(day - nday <=30){
+                                    elms[i].style.display = "block";
+                                }
+                            }
+                            else if(mon-nmon == 1){
+                                if(nday%2 == 1 && nday - day == 30){
+                                    elms[i].style.display = "block";
+                                }
+                                else if(nday%2 == 0 && nday - day == 29){
+                                    elms[i].style.display = "block";
+                                }
+                            }
+                        }
+                    }
+                }
+                
+            }
+            // else{
+            //     for(var i = 0; i < elms.length; i++) {
+            //         // console.log(elms[i].children);
+            //         if(elms[i].children[2].innerText == d){
+            //         elms[i].style.display = "none";
+            //     }
+            //     }
+            // }  
+        }
+        function handleInterval(d){
+            b = document.getElementById(d)
+            console.log(b);
+            let start = document.getElementById("start").value;
+            let end = document.getElementById("end").value;
+            
+            let month = ['January','February','March','April','May','June','July','August','September','September','October','November','December']
+
+            
+            // var Arrinput = names.split(',');
+            var sArrToday = start.split('-');
+            let syear = parseInt(sArrToday[0]);
+            let smon = parseInt(sArrToday[1]);
+            let sday = parseInt(sArrToday[2]);
+            var eArrToday = end.split('-');
+            let eyear = parseInt(eArrToday[0]);
+            let emon = parseInt(eArrToday[1]);
+            let eday = parseInt(eArrToday[2]);
+            // console.log(year, mon, day);
+            // console.log(datas);
+            // console.log(document.getElementById('name').innerText);
+            let elms = document.querySelectorAll("[id='history']");
+            
+
+            
+            
+            if(b.checked){
+                    console.log("hello");
+                    for(var i = 0; i < elms.length; i++) {
+                        let arr = elms[i].children[2].innerText.split(',');
+                        nyear = parseInt(arr[1])
+                        // console.log('Arrday', );
+                        arr = arr[0].split(' ');
+                        nmon = month.indexOf(arr[0])+1;
+                        // console.log('nday', arr[1]);
+                        nday = parseInt(arr[1])
+                        // console.log(elms[i].children[2].innerText);
+                        // console.log("acho");
+                        // console.log('year',year,'nyear',nyear,'day',day,'nday',nday);
+                        if(eyear - syear ==0 && nyear -syear == 0){
+                            
+                            if(smon == emon){
+                                console.log("next");
+                                console.log("nday",nday,"sday",sday,"eday",eday);
+                                if(sday == eday ){
+                                    
+                                    if(sday == nday || nday-sday == 1){
+                                        elms[i].style.display = "block";
+                                    }  
+                                    
+                                }
+                                
+                                else if(nday <= sday && nday >= eday ){
+                                    
+                                    elms[i].style.display = "block";
+                                }
+
+                            }
+                            else if(nmon <= smon && nmon >= emon){
+                                if(sday == eday ){
+                                    if(sday == nday || nday-sday == 1){
+                                        elms[i].style.display = "block";
+                                    }  
+                                    
+                                }
+                                else if(nday <= sday && nday >= eday ){
+                                    elms[i].style.display = "block";
+                                }
+                            }
+                            
+                            
+                        }
+                        if(nyear <= syear && nyear > eyear){
+                            if(smon == emon){
+                                if(sday == eday ){
+                                    if(sday == nday || nday-sday == 1){
+                                        elms[i].style.display = "block";
+                                    }  
+                                    
+                                }
+                                else if(nday <= sday && nday >= eday ){
+                                    elms[i].style.display = "block";
+                                }
+
+                            }
+                            else if(smon > emon){
+                                if(nmon <= smon && nmon >=emon){
+                                    if(sday == eday ){
+                                    if(sday == nday || nday-sday == 1){
+                                        elms[i].style.display = "block";
+                                    }  
+                                    
+                                }
+                                else if(nday <= sday && nday >= eday ){
+                                    elms[i].style.display = "block";
+                                }
+                                }
+                            }
+                            else if(nmon <= smon && nmon >= emon){
+                                if(sday == eday ){
+                                    if(sday == nday || nday-sday == 1){
+                                        elms[i].style.display = "block";
+                                    }  
+                                    
+                                }
+                                else if(nday <= sday && nday >= eday ){
+                                    elms[i].style.display = "block";
+                                }
+                            }
+                            
+                            
+                        }
+                    }
+                
+                
+                
+                
+            }
+            // else{
+            //     for(var i = 0; i < elms.length; i++) {
+            //         // console.log(elms[i].children);
+            //         if(elms[i].children[2].innerText == d){
+            //         elms[i].style.display = "none";
+            //     }
+            //     }
+            // }  
+        }
+    </script>
