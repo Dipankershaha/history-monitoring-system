@@ -1,1 +1,1 @@
-web:gunicorn history-monitoring-system.wsgi.application --log-file-
+web: gunicorn History_Monitor.wsgi --log-file -
