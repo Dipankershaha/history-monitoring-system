@@ -204,11 +204,13 @@
     <br>
     <input type="checkbox" id="interval" onChange="handleCheck(id)" value=""><strong>Check it first to search by date interval</strong> 
     <br>
+    <br>
     <p style="display: inline;">Start Date</p>
     <input style="display: inline;" type="date" id="start" name="start">
     <br>
-    <p style="display: inline;">End Date</p>
+    <p style="display: inline;">End Date </p>
     <input style="display: inline;" type="date" id="end" name="end">
+    <br>
     <br>
     <input style="text-align: center;" type="checkbox" class="interval" id="date" onclick="handleInterval(id)"><b>Click to Search</b>
     <br>
@@ -220,9 +222,11 @@
     {% endfor %} -->
     <!-- <input type="checkbox" id="{{user}}" onChange="handleLoad(id, value)" value="{{histories_all}}"> hello -->
     
-    <input type="checkbox" id="user" onChange="handleCheck(id)" value=""><strong>Check the box if you want to Search By Users</strong> 
+    
     <br>
-    <ul>
+    <div>
+        <ul>
+        <input type="checkbox" id="user" onChange="handleCheck(id)" value=""><strong>Check the box if you want to Search By Users</strong> 
         {% for user in users %}
         <li style="list-style-type:none">
             <input class="user" type="checkbox" id="{{user}}" onChange="handleChange(value)" value="{{user}}"> {{user}}
@@ -230,6 +234,8 @@
      
         {% endfor %}
     </ul>
+    </div>
+    
     
     <br>
     <div>
@@ -253,11 +259,9 @@
     
     
     <div id="history" style="padding-left: 50px; padding-right: 50px;">
-        <h3 id="keyword" style="color: blue; display: inline;"><a href="#">{{ history.keyword }}</a></h3>
-        <br>
-        </h2><h3 id="name" style="color: green; display: inline;">{{ history.search_by }}</h3>
-        <br>
-        </h2><h3 id="date" style=" display: inline;" >{{ history.search_date }}</h3>
+        <h3 id="keyword" style="color: blue; "><a href="#">{{ history.keyword }}</a></h3>
+        <h3 id="name" style="color: green; ">{{ history.search_by }}</h3>
+        <h3 id="date"  >{{ history.search_date }}</h3>
     </div><br><br>
     {% endfor %}
     {% endif %}
@@ -312,6 +316,7 @@
             var elms = document.querySelectorAll("[id='history']");
             // console.log(e,b.checked);
             if(b.checked){
+                
                 for(var i = 0; i < elms.length; i++) {
                     console.log(elms[i].children[1].innerText);
                     if(elms[i].children[1].innerText == e){
