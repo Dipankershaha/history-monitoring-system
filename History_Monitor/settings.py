@@ -31,10 +31,10 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 SECRET_KEY = 'a=chg^3ewtxh=#h1b8%(6y96_e0espn5__7r(2y$$q6+2jr)b7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*','https://history-monitoring-system.herokuapp.com']
 
 
 # Application definition
