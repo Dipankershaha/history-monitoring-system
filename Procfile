@@ -1,1 +1,1 @@
-web: gunicorn History_Monitor.wsgi:application --log-file-
+web: gunicorn CCMS.wsgi --log-file -
